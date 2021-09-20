@@ -24,6 +24,7 @@ NLP
 1 -  **1 - Kaggle data download, cleaning and Mysql upload.ipynb**: 
 
 2 - **2 - Get and Post API requests.ipynb**: 
+
 3 - **3 - NLP.ipynb**: 
 
 
