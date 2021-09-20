@@ -9,11 +9,14 @@ import markdown.extensions.fenced_code
 app = Flask(__name__)
 
 
+
 @app.route('/')
 def index():
     readme_file = open("Doc.md", "r")
     md_template = markdown.markdown(readme_file.read(), extensions = ["fenced_code"])
     return md_template
+
+# GET
 
 @app.route("/sentences/")
 def allsentence():
@@ -28,6 +31,22 @@ def speakersentence(speaker):
     return sentences
 
 
+@app.route("/sentiment/")
+def sentiment_pol():
+
+    sentences = sql.get_polarity()
+    return sentences
+
+
+@app.route("/sentiment/<speaker>")
+def speaker_sentiment():
+
+    sentences = sql.get_polarity()
+    return sentences
+
+
+
+# POST
 @app.route("/newsentence", methods=["POST"])
 def newsentence():
     data = dict(request.form.to_dict())
@@ -42,21 +61,5 @@ def newsentence():
         print(f"There has been an error: {e}")
         return {"error": 1, "msg": e} 
 
-
-@app.route("/sentiment/")
-
-
-def sentiment_pol():
-
-    sentences = sql.get_polarity()
-    return sentences
-
-
-# @app.route("/polarity/<speaker>")
-
-# def polarity(speaker):
-    
-#     sentences = sql.speaker_sentence(speaker)
-#     return sentences
 
 app.run(debug=True)

@@ -6,7 +6,7 @@ import sqlalchemy as alch
 # dotenv.load_dotenv()
 
 # passw = os.getenv("pass_sql")
-passw = "admin"
+passw = "*****"
 dbName="political_debates"
 connectionData=f"mysql+pymysql://root:{passw}@localhost/{dbName}"
 engine = alch.create_engine(connectionData)
