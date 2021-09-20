@@ -2,6 +2,14 @@ import numpy as np
 import pandas as pd
 import os
 import re
+import string
+import en_core_web_sm
+import spacy
+from nltk.corpus import stopwords
+from langdetect import detect
+import re
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 
 def import_kaggle_data(url):
@@ -62,3 +70,42 @@ def clean_characters(list_, database_name, column):
     """
     for ch in list_:
         database_name[f'{column}'] = database_name[f'{column}'].str.replace(f"{ch}","")
+
+
+def tokenizer(txt):
+    """
+     This function reads strings and gives back its tokenization
+
+    Args:
+     - 1 Detects language (en or es)
+     - 2 It does lemmatisation to each word, removes spaces and stopword and lower cases
+
+    Returns:
+      string tokenize
+
+    """
+
+    try:
+        if detect(txt) == 'en':
+            nlp = spacy.load("en_core_web_sm")
+        elif detect(txt) == 'es':
+            nlp = spacy.load("es_core_news_sm")
+        else:
+            return "It's not English or Spanish"
+            
+    except:
+        return "this can't be analize"
+    
+    
+    tokens = nlp(txt)
+    filtradas = []
+    
+    for word in tokens:
+        if not word.is_stop:
+            lemma = word.lemma_.lower().strip()
+            if re.search('^[a-zA-Z]+$',lemma):
+                filtradas.append(lemma)
+            
+    return " ".join(filtradas)
+
+

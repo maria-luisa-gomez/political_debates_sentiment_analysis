@@ -4,12 +4,16 @@ from flask.json import jsonify, load
 from numpy import character
 from sqlalchemy.util.langhelpers import method_is_overridden
 import src.sql_tools as sql
+import markdown.extensions.fenced_code
 
 app = Flask(__name__)
 
-@app.route("/")
-def inicio():
-    return "Hola Mundo"
+
+@app.route('/')
+def index():
+    readme_file = open("Doc.md", "r")
+    md_template = markdown.markdown(readme_file.read(), extensions = ["fenced_code"])
+    return md_template
 
 @app.route("/sentences/")
 def allsentence():
@@ -38,5 +42,21 @@ def newsentence():
         print(f"There has been an error: {e}")
         return {"error": 1, "msg": e} 
 
+
+@app.route("/sentiment/")
+
+
+def sentiment_pol():
+
+    sentences = sql.get_polarity()
+    return sentences
+
+
+# @app.route("/polarity/<speaker>")
+
+# def polarity(speaker):
+    
+#     sentences = sql.speaker_sentence(speaker)
+#     return sentences
 
 app.run(debug=True)
