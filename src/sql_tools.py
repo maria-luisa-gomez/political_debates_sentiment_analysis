@@ -12,6 +12,9 @@ import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 
+
+
+
 def all_sentences():
     """
     Gets all data from political_debates mysql database
@@ -31,6 +34,8 @@ def all_sentences():
     datos = pd.read_sql_query(query,engine)
 
     return datos.to_json(orient="records")
+
+
 
 
 def speaker_sentence(speaker):
@@ -293,3 +298,26 @@ def get_polarity():
     df["polarity"] = df.tokens.apply(sentiment)
 
     return df.to_json(orient="records")
+
+
+def get_speaker_polarity(speaker):
+    """
+    Gets all data from political_debates filtered by given speaker name
+
+    Args:
+    query from flask end point http://127.0.0.1:5000/sentiment/<speaker>
+
+   Returns:
+       json with query results adding calculate polarity parameter
+
+    """
+    query = f"""
+            SELECT speaker, speakerid, minute, sentence, tokens, speakers_speakerid, debate FROM speeches
+            INNER JOIN speakers ON speeches.speakers_speakerid = speakers.speakerid
+            WHERE speaker = '{speaker}'"""
+
+    df = pd.read_sql_query(query,engine)
+    df["polarity"] = df.tokens.apply(sentiment)
+
+    return df.to_json(orient="records")
+
