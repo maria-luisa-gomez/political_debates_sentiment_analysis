@@ -1,6 +1,6 @@
 # Political Debates API
 
-![portada](https://c.files.bbci.co.uk/4081/production/_114631561_debates_index_promo976.png)
+![portada](https://ichef.bbci.co.uk/news/640/cpsprodpb/EB25/production/_113979106_788cafdb-afda-4718-90f4-7212c3e16662.jpg)
 
 ### Objective
 
@@ -21,15 +21,19 @@ NLP
 
 ### STEPS
 
-1 -  **(1 - MongoQueries_CompaniesCollection_find_city.ipynb)**: 
+1 -  **1 - Kaggle data download, cleaning and Mysql upload.ipynb**: 
 
-2 - **2 - Foursquare API.ipynb**: 
-3 - **3 - Near Geoqueries.ipynb**: 
+2 - **2 - Get and Post API requests.ipynb**: 
+3 - **3 - NLP.ipynb**: 
 
 
 ## Libraries
 
 [flask](https://flask.palletsprojects.com/en/2.0.x/)
+
+[NLTK](https://www.nltk.org/api/nltk.sentiment.html)
+
+[sqlalchemy](https://www.sqlalchemy.org)
 
 [sys](https://docs.python.org/3/library/sys.html)
 
