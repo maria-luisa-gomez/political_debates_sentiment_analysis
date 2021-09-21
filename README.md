@@ -21,7 +21,7 @@ NLP
 
 ### STEPS
 
-1 -  **1 - Kaggle data download, cleaning and Mysql upload.ipynb**: In this notebook we work on:
+**1 - Kaggle data download, cleaning and Mysql upload.ipynb**: In this notebook we work on:
 
 - Downloading kaggle source data. (import_kaggle_data function -> kaggle_data_functions.py)
 
@@ -32,7 +32,7 @@ NLP
 - Import dataframe to sql political_database (political_debate_database_squema.sql)
 
 
-2 - **2 - Get and Post API requests.ipynb**: API calls:
+**2 - Get and Post API requests.ipynb**: API calls:
 
 - GET requests: get endpoints -> main.py and query functions -> sql_tools.py
 
@@ -40,7 +40,7 @@ NLP
 
 
 
-3 - **3 - NLP.ipynb**: sentiment analyis: 
+**3 - NLP.ipynb**: sentiment analyis: 
 
 - Stablishing conexion with the database -> configuariton.py
 
@@ -48,7 +48,7 @@ NLP
 
 
 
-API Documentation -> Doc.md
+API Documentation ->[Doc.md](https://github.com/maria-luisa-gomez/political_debates_sentiment_analysis/blob/main/Doc.md)
 
 
 ## Libraries
