@@ -10,7 +10,7 @@ Developers can access information about what has been said by the politician dur
 
 ### METHODS
 
-Mysql database
+Mysql
 
 Flask
 
@@ -21,11 +21,34 @@ NLP
 
 ### STEPS
 
-1 -  **1 - Kaggle data download, cleaning and Mysql upload.ipynb**: 
+1 -  **1 - Kaggle data download, cleaning and Mysql upload.ipynb**: In this notebook we work on:
 
-2 - **2 - Get and Post API requests.ipynb**: 
+- Downloading kaggle source data. (import_kaggle_data function -> kaggle_data_functions.py)
 
-3 - **3 - NLP.ipynb**: 
+- Giving the dataframe the appropiate format (clean_characters function -> kaggle_data_functions.py)
+
+- Adding some columns needed like  "speakerid", "sentence id" and "tokens" (sentence said tokenized, tokenizer function-> kaggle_data_functions.py).
+
+- Import dataframe to sql political_database (political_debate_database_squema.sql)
+
+
+2 - **2 - Get and Post API requests.ipynb**: API calls:
+
+- GET requests: get endpoints -> main.py and query functions -> sql_tools.py
+
+- POST request: post endpoints -> main.py and query and defensive programming functions -> sql_tools.py
+
+
+
+3 - **3 - NLP.ipynb**: sentiment analyis: 
+
+- Stablishing conexion with the database -> configuariton.py
+
+- Get endpoints  -> main.py and  query sentiment analysis -> functions sql_tools.py 
+
+
+
+API Documentation -> Doc.md
 
 
 ## Libraries

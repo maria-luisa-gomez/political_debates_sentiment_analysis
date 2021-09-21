@@ -37,7 +37,7 @@ mso-fareast-language:EN-GB'>Political Debates API<o:p></o:p></span></b></p>
   <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
   mso-outline-level:3'><span style='font-size:13.5pt;font-family:"Apple Symbols";
   color:black'>The PD API allows developers to access political debates
-  database with information about the <span class=SpellE>policians</span>
+  database with information about the <span class=SpellE>politicians</span>
   involved in the debate, sentence said and minute. The access is type GET and
   POST</span><b><span style='font-size:20.0pt;font-family:"Apple Symbols";
   mso-fareast-font-family:"Times New Roman";color:black;mso-fareast-language:

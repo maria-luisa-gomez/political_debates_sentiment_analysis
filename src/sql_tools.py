@@ -209,46 +209,6 @@ def insert_register(dict_):
 # -----DEFENSIVE PROGRAMMING / ERROR HANDELING----END 
 
 
-
-def tokenizer(txt):
-
-    """
-     This function reads strings and gives back its tokenization
-
-    Args:
-     - 1 Detects language (en or es)
-     - 2 It does lemmatisation to each word, removes spaces and stopword and lower cases
-
-    Returns:
-      string tokenize
-
-    """
-
-
-    try:
-        if detect(txt) == 'en':
-            nlp = spacy.load("en_core_web_sm")
-        elif detect(txt) == 'es':
-            nlp = spacy.load("es_core_news_sm")
-        else:
-            return "It's not English or Spanish"
-            
-    except:
-        return "this can't be analize"
-    
-    
-    tokens = nlp(txt)
-    filtradas = []
-    
-    for word in tokens:
-        if not word.is_stop:
-            lemma = word.lemma_.lower().strip()
-            if re.search('^[a-zA-Z]+$',lemma):
-                filtradas.append(lemma)
-            
-    return " ".join(filtradas)
-
-
 def sentiment(sentence):
 
     """
